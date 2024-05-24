@@ -1,72 +1,62 @@
-# write 'hello world' to the console
-#print("hello world")
+# Simple Rock, Paper, Scissors Game
 
-#Rock beats scissors.
-#Scissors beat paper.
-#Paper beats rock.
+'''
+Game Rules:
+- The computer randomly chooses rock, paper, or scissors each round.
+- The player inputs their choice of rock, paper, or scissors in the console.
+- An invalid option prompts a warning.
+- After each round, the game announces if the player won, lost, or tied.
+- The player can choose to play again after each round.
+- The game displays the player's score at the end.
+- The game handles user inputs, converting them to lowercase and validating the option.
 
-# the computer randomly choose one of the elements (rock, paper, or scissors) for each move, just like you. 
-# Your interaction in the game will be through the console (Terminal).
-# The player can choose one of the three options rock, paper, or scissors and should be warned if they enter an invalid option.
-# At each round, the player must enter one of the options in the list and be informed if they won, lost, or tied with the opponent.
-# By the end of each round, the player can choose whether to play again.
-# Display the player's score at the end of the game.
-# The minigame must handle user inputs, putting them in lowercase and informing the user if the option is invalid.
-
-# Create Simple Rock, Paper, Scissors Game
-
+Winning Conditions:
+- Rock beats scissors.
+- Scissors beat paper.
+- Paper beats rock.
+'''
+# Import the random module
 import random
+# Define the game variables
+options = ['rock', 'paper', 'scissors']
+player_score = 0
+computer_score = 0
+game = True
 
-def rock_paper_scissors():
-
-    # Define the game options
-    options = ['rock', 'paper', 'scissors']
+# Define the game loop
+while game:
+    # Computer's move
+    computer_move = random.choice(options)
     
-    # Define the player and computer scores
-    player_score = 0
-    computer_score = 0
-    
-    # Define the game status
-    game = True
+    # Player's move
+    player_move = input('Choose rock, paper, or scissors: ').lower()
 
-    while game:
-        # Player's move
-        player_move = input('Enter your move: ')
-        player_move = player_move.lower()
-        if player_move not in options:
-            print('Invalid option. Please try again.')
-            continue
+    # Check if the player's move is valid
+    if player_move not in options:
+        print('Invalid option. Please choose rock, paper, or scissors.')
+        continue
 
-        # Computer's move
-        computer_move = random.choice(options)
-        print(f'Computer chose {computer_move}')
-        
-        # Game logic
-        if player_move == computer_move:
-            print('It is a tie!')
-        elif player_move == 'rock' and computer_move == 'scissors':
-            print('You win!')
-            player_score += 1
-        elif player_move == 'scissors' and computer_move == 'paper':
-            print('You win!')
-            player_score += 1
-        elif player_move == 'paper' and computer_move == 'rock':
-            print('You win!')
-            player_score += 1
-        else:
-            print('You lose!')
-            computer_score += 1
+    # Game logic
+    # Tie
+    if player_move == computer_move:
+        print(f'Computer choose {computer_move}. It is a tie!')
+    # Player wins
+    elif (player_move == 'rock' and computer_move == 'scissors') or (player_move == 'scissors' and computer_move == 'paper') or (player_move == 'paper' and computer_move == 'rock'):
+        print(f'Computer choose {computer_move}. You win!')
+        player_score += 1
+    # Computer wins
+    else:
+        print(f'Computer choose {computer_move}. You lose!')
+        computer_score += 1
 
-        # Play again
-        play_again = input('Do you want to play again? (yes/no): ')
-        play_again = play_again.lower()
-        if play_again != 'yes':
-            game = False
+    # Play again
+    play_again = input('Do you want to play again? (yes/no): ').lower()
+    if play_again != 'yes':
+        game = False
 
-    # Display the final scores
-    print(f'Player score: {player_score}')
-    print(f'Computer score: {computer_score}')
+# Display the final scores
+print(f'Player score: {player_score}')
+print(f'Computer score: {computer_score}')
 
-rock_paper_scissors()
 
 
