@@ -40,4 +40,4 @@ def game():
             show_result(scores, rounds)
             break
 
-game()
+game(
