@@ -27,14 +27,20 @@ def play_game():
     else:
         print('You lose!')
 
+
+# create a variable to store the play again count
+play_again_count = 1
+
 # Call the play_game method
 play_game()
 # ask to play again
 play_again = input('Do you want to play again? (yes or no): ')
 while play_again.lower() == 'yes' or play_again.lower() == 'y':
+    # increase the play again count
+    play_again_count += 1
     play_game()
     play_again = input('Do you want to play again? (yes or no): ')
-print('Thanks for playing!')
+print('Thanks for playing! You played', play_again_count, 'times.')
 
 # print message to the console 
 print('Goodbye!')
