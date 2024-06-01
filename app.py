@@ -31,10 +31,10 @@ def play_game():
 play_game()
 # ask to play again
 play_again = input('Do you want to play again? (yes or no): ')
-if play_again == 'yes' or play_again == 'y':
+while play_again.lower() == 'yes' or play_again.lower() == 'y':
     play_game()
-else:
-    print('Thanks for playing!')
+    play_again = input('Do you want to play again? (yes or no): ')
+print('Thanks for playing!')
 
 # print message to the console 
 print('Goodbye!')
