@@ -39,3 +39,11 @@ while True:
 print(f'Thank you for playing. Your final score is {score}.')
 
 
+   
+
+
+
+# ask player what is his name
+player_name = input('What is your name? ')
+print(f'Hello, {player_name}! Welcome to the Rock, Paper, Scissors game.')
+
