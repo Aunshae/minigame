@@ -19,7 +19,7 @@ def determine_winner(user_choice, computer_choice):
          (user_choice == 'paper' and computer_choice == 'rock'):
         return "win"
     else:
-        return "lose"
+        return "lose
 
 def main():
     score = {'win': 0, 'lose': 0, 'tie': 0}
